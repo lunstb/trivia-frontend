@@ -1,0 +1,8 @@
+.about-text {
+  width: 80vw;
+  margin-left: 10vw;
+}
+
+.about-text > p {
+  font-size: 22px;
+}

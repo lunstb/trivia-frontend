@@ -1,0 +1,25 @@
+.name-status {
+  height: 25px;
+  width: 25px;
+  border-color: rgb(27, 27, 27);
+  border-radius: 50%;
+  border-width: 1px;
+  display: inline-block;
+}
+
+.name-status-ready {
+  background-color: #03A100;
+}
+
+.name-status-not-ready {
+  background-color: #C30000;
+}
+
+.name-status-container * {
+  display: inline-block;
+}
+
+.name-status-container > p {
+  margin: 0px 10px;
+  font-size: 36px;
+}
