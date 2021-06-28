@@ -6,7 +6,7 @@ export class About extends React.Component {
   render() {
     return (
       <div>
-        <h1>About</h1>
+        <h1 className="header">About</h1>
         <BackButton
           location = "/"
           text = "Back"

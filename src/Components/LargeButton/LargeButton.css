@@ -1,13 +1,15 @@
 .large-button {
   background-color: #a9a9a9;
-  display: flex;
-  width: 20vw;
-  height: 10vw;
+  display: block;
+  width: 350px;
+  height: 140px;
   margin: auto;
+  margin-bottom: 60px;
+
   
-  font-size: 3vw;
+  font-size: 60px;
   color: black;
-  line-height: 8vw;
+  line-height: 120px;
   text-align: center;
   text-decoration: none;
   border-radius: 40px;
