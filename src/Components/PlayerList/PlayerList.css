@@ -1,0 +1,35 @@
+.player-list-container {
+  max-width: 60vw;
+  padding: 15px 30px;
+  display: block;
+  margin:auto;
+  background-color: lightgray;
+  margin-bottom: 30px;
+}
+
+.player-container {
+  width: 250px;
+  margin: 20px 20px;
+  font-size: 36px;
+}
+
+.player-container * {
+  display: inline-block;
+}
+
+.player-icon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: -5px;
+  margin-right: 10px;
+  border-radius: 50px;
+}
+
+.player-ready {
+  background-color: #03A100;
+}
+
+.player-not-ready {
+  background-color: #C30000;
+}
+

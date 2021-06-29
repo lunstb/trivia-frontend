@@ -9,6 +9,7 @@ import { Home } from './Pages/Home/Home'
 import { JoinGame } from './Pages/JoinGame/JoinGame'
 import { NewGame } from './Pages/NewGame/NewGame'
 import './App.css';
+import { GameLobby } from './Pages/GameLobby/GameLobby';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route path="/newgame">
             <NewGame />
+          </Route>
+          <Route path="/gamelobby">
+            <GameLobby />
           </Route>
           <Route path="/">
             <Home />
