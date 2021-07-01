@@ -2,9 +2,9 @@ import React from 'react'
 import './TextInput.css'
 
 
-export const TextInput = ({label}) => 
+export const TextInput = ({label, value, handleChange}) => 
   <div className="text-input-container">
     <p className="text-input-label">{label}</p>
-    <input type="text" className="text-input"></input>
+    <input value={value} onChange={handleChange} type="text" className="text-input"></input>
   </div>
   
