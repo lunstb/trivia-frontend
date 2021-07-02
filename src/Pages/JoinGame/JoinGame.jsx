@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import { BackButton } from '../../Components/BackButton/BackButton';
-import { LargeButton } from '../../Components/LargeButton/LargeButton';
+import { LargeButtonLink } from '../../Components/LargeButton/LargeButtonLink';
 import { TextInput } from '../../Components/TextInput/TextInput';
 
 export class JoinGame extends Component {
@@ -44,7 +44,7 @@ export class JoinGame extends Component {
         />
         <br/>
         <br/>
-        <LargeButton
+        <LargeButtonLink
           location = {`/gamelobby?status=joingame&name=${encodeURI(this.state.name)}&gamecode=${encodeURI(this.state.code)}`}
           text = "Join Game"
         />

@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './LargeButton.css'
 
 
-export const LargeButton = ({location, text}) => <Link className="large-button" to={location}>{text}</Link>
+export const LargeButton = ({callback, text}) => <div className="large-button" onClick={()=>callback()}>{text}</div>

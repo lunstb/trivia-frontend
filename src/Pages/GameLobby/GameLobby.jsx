@@ -3,6 +3,7 @@ import { BackButton } from '../../Components/BackButton/BackButton';
 import { LoadingScreen } from './LoadingScreen/LoadingScreen';
 import { LobbyWaitScreen } from './LobbyWaitScreen/LobbyWaitScreen';
 import { w3cwebsocket as W3CWebSocket } from "websocket";
+import { GameRoundScreen } from './GameRoundScreen/GameRoundScreen';
 
 export class GameLobby extends Component {
   constructor(props) {
@@ -11,11 +12,14 @@ export class GameLobby extends Component {
     this.state = {
       gameState: "loading",
       players: [],
-      playerID: ""
+      playerID: "",
+      gameCode: "",
+      ready: false
     }
 
     this.websocket = null;
 
+    this.updateReady = this.updateReady.bind(this);
     this.handleLoading = this.handleLoading.bind(this);
   }
 
@@ -36,28 +40,44 @@ export class GameLobby extends Component {
 
     const self = this;
     this.websocket.onmessage = function(event) {
-      const msg = JSON.parse(event.data);
-      console.log(msg);
+      const msg = JSON.parse(event.data)
+      console.log(msg)
 
       switch (msg.type) {
         case 0:
           self.setState({
-            gameState: "lobby"
+            gameState: "lobby",
+            gameCode: msg.body
           })
-          break;
+          break
         case 1:
           self.setState({
             players: JSON.parse(msg.body)
           })
+          break
         case 2:
           self.setState({
-            playerID: JSON.parse(msg.body)
+            playerID: msg.body
           })
+          break
+        case 3: 
+          self.setState({
+            gameState: "round"
+          })
+          break
         default:
-          break;
+          break
       }
       
     }
+  }
+
+  updateReady() {
+    const nextReady = !this.state.ready
+    this.setState({
+      ready: nextReady
+    })
+    this.websocket.send(JSON.stringify({"type":0,"content":JSON.stringify({"status":nextReady})}))
   }
 
   render() {
@@ -71,10 +91,13 @@ export class GameLobby extends Component {
       case "lobby":
         currentScene = <LobbyWaitScreen 
           players = {this.state.players}
+          code = {this.state.gameCode}
+          ready = {this.state.ready}
+          updateReady = {this.updateReady}
         />
         break;
       case "round":
-
+        currentScene = <GameRoundScreen />
         break;
       case "roundend":
 

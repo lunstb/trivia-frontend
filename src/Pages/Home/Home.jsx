@@ -1,5 +1,5 @@
 import React, { Component} from 'react'
-import { LargeButton } from '../../Components/LargeButton/LargeButton'
+import { LargeButtonLink } from '../../Components/LargeButton/LargeButtonLink'
 import './Home.css'
 
 
@@ -8,15 +8,15 @@ export class Home extends Component {
     return (
       <div>
         <h1 className="header">Project Name</h1>
-        <LargeButton
+        <LargeButtonLink
           location = "/newgame"
           text = "New Game"
         />
-        <LargeButton
+        <LargeButtonLink
           location = "/joingame"
           text = "Join Game"
         />
-        <LargeButton
+        <LargeButtonLink
           location = "/about"
           text = "About"
         />

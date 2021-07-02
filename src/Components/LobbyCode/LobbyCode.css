@@ -1,0 +1,22 @@
+.lobby-code-container {
+  display: block;
+  background-color: darkgray;
+
+  margin: auto;
+  border-radius: 20px;
+
+  height: 100px;
+  width: 300px;
+
+  margin-bottom: 30px;
+}
+
+.lobby-code {
+  /* background-color: white;
+
+  display: flex; */
+  font-size: 50px;
+  width: 50px;
+  height: 80px;
+
+}

@@ -1,7 +1,7 @@
 import React, { Component} from 'react'
 import { BackButton } from '../../Components/BackButton/BackButton';
 import { CategorySelection } from '../../Components/CategorySelection/CategorySelection';
-import { LargeButton } from '../../Components/LargeButton/LargeButton';
+import { LargeButtonLink } from '../../Components/LargeButton/LargeButtonLink';
 import { TextInput } from '../../Components/TextInput/TextInput';
 
 export class NewGame extends Component {
@@ -20,6 +20,7 @@ export class NewGame extends Component {
     this.setState({name: event.target.value})
     console.log(this.state)
   }
+
 
   render() {
     return (
@@ -43,7 +44,7 @@ export class NewGame extends Component {
         />
         <br/>
         <br/>
-        <LargeButton
+        <LargeButtonLink
           location = {`/gamelobby?name=${encodeURI(this.state.name)}&status=creategame&category=${encodeURI(this.state.category)}`}
           text = "Create Game"
         />
