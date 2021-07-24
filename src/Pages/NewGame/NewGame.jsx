@@ -10,17 +10,31 @@ export class NewGame extends Component {
 
     this.state = {
       name: "",
-      category: ""
+      category: "",
+      categories: []
     }
 
+    this.getCategories = this.getCategories.bind(this)
     this.changeName = this.changeName.bind(this)
+  }
+
+  componentDidMount() {
+    this.getCategories()
   }
 
   changeName(event) {
     this.setState({name: event.target.value})
-    console.log(this.state)
   }
 
+  async getCategories() {
+    const categories = await fetch('http://localhost:8080/getcategories').then((response) => {
+      return response.json()
+    })
+
+    this.setState({
+      categories: categories
+    })
+  }
 
   render() {
     return (
@@ -38,7 +52,7 @@ export class NewGame extends Component {
         <br/>
         <br/>
         <CategorySelection
-          categories = {["Animals","Celebrities","Countries","World Records","All"]}
+          categories = {this.state.categories}
           selected = {this.state.category}
           setCategory = {(category) => this.setState({category: category})}
         />
