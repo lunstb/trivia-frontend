@@ -1,6 +1,6 @@
 import React from 'react'
 import { BackButton } from '../../../Components/BackButton/BackButton'
-import { LargeButton } from '../../../Components/LargeButton/LargeButton'
+import { Question } from '../../../Components/Question/Question'
 
 
 export const GameRoundScreen = (props) => (
@@ -10,11 +10,13 @@ export const GameRoundScreen = (props) => (
       location = "/"
       text = "Exit"
     />
-    
-    <LargeButton
-      callback = {()=>{alert(1)}}
-      text = "Submit Answer"
+
+    <Question
+      question = {props.question.question}
+      unit = {props.question.unit}
+      handleChange = {props.enterAnswer}
     />
+   
+    <div>{props.countdownText} Seconds Left to Guess</div>
   </div>
 )
-

@@ -20,8 +20,7 @@ export const LobbyWaitScreen = (props) => (
     />
     <LargeButton
       callback = {()=>{props.updateReady()}}
-      text = {props.ready ? "Waiting..." : "Ready"}
+      text = {props.ready ? props.countdownText : "Ready"}
     />
   </div>
 )
-

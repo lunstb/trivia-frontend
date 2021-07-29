@@ -4,6 +4,9 @@ import { LoadingScreen } from './LoadingScreen/LoadingScreen';
 import { LobbyWaitScreen } from './LobbyWaitScreen/LobbyWaitScreen';
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 import { GameRoundScreen } from './GameRoundScreen/GameRoundScreen';
+import { GameResultsScreen } from './RoundResultsScreen/GameResultsScreen';
+import { GameEndScreen } from './GameEndScreen/GameEndScreen';
+import { Question } from '../../Components/Question/Question';
 
 export class GameLobby extends Component {
   constructor(props) {
@@ -14,13 +17,21 @@ export class GameLobby extends Component {
       players: [],
       playerID: "",
       gameCode: "",
-      ready: false
+      countdownText: "Waiting",
+      ready: false,
+      currentQuestion: {},
+      playerScores: []
     }
 
     this.websocket = null;
 
-    this.updateReady = this.updateReady.bind(this);
-    this.handleLoading = this.handleLoading.bind(this);
+    this.enterAnswer = this.enterAnswer.bind(this)
+    this.updateReady = this.updateReady.bind(this)
+    this.handleLoading = this.handleLoading.bind(this)
+  }
+
+  enterAnswer(event) {
+    this.websocket.send(JSON.stringify({"type":1,"content":JSON.stringify({"answer":event.target.value})}))
   }
 
   handleLoading() {
@@ -62,7 +73,32 @@ export class GameLobby extends Component {
           break
         case 3: 
           self.setState({
-            gameState: "round"
+            countdownText: msg.body
+          })
+          break
+        case 4:
+          const parsedQuestion = JSON.parse(msg.body)
+          console.log(parsedQuestion)
+          self.setState({
+            gameState: "round",
+            currentQuestion: parsedQuestion
+          })
+          break
+        case 5:
+          const parsedPlayerScores = JSON.parse(msg.body)
+
+          parsedPlayerScores.sort(function(a,b) {
+            return b.Score - a.Score
+          });
+          console.log(parsedPlayerScores)
+          self.setState({
+            gameState: "roundend",
+            playerScores: parsedPlayerScores
+          })
+          break
+        case 6:
+          self.setState({
+            gameState: "gameend"
           })
           break
         default:
@@ -70,6 +106,11 @@ export class GameLobby extends Component {
       }
       
     }
+  }
+
+  componentWillUnmount() {
+    this.websocket.send(JSON.stringify({"type":2,"content":JSON.stringify({"status":"Leaving the game"})}))
+    this.websocket.close()
   }
 
   updateReady() {
@@ -87,21 +128,34 @@ export class GameLobby extends Component {
       case "loading":
         this.handleLoading()
         currentScene = <LoadingScreen />
-        break;
+        break
       case "lobby":
         currentScene = <LobbyWaitScreen 
           players = {this.state.players}
           code = {this.state.gameCode}
           ready = {this.state.ready}
           updateReady = {this.updateReady}
+          countdownText = {this.state.countdownText}
         />
-        break;
+        break
       case "round":
-        currentScene = <GameRoundScreen />
-        break;
+        currentScene = <GameRoundScreen 
+          question = {this.state.currentQuestion}
+          enterAnswer = {this.enterAnswer}
+          countdownText = {this.state.countdownText}
+        />
+        break
       case "roundend":
-
-        break;
+        currentScene = <GameResultsScreen
+          countdownText = {this.state.countdownText}
+          playerScores = {this.state.playerScores}
+        />
+        break
+      case "gameend":
+        currentScene = <GameEndScreen
+          playerScores = {this.state.playerScores}
+        />
+        break
       default:
         break;
     }
