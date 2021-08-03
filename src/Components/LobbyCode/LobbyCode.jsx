@@ -1,4 +1,5 @@
 import React from 'react'
+import { AlertSystem } from '../AlertSystem/AlertSystem'
 import './LobbyCode.css'
 
 
@@ -10,6 +11,6 @@ export const LobbyCode = ({text}) => (
 
     navigator.clipboard.writeText(lobbyCode.textContent)
 
-    alert("copied the text " + lobbyCode.textContent)
+    AlertSystem.instance.addState("You copied the code", "info")
   }}></img>
 </div>)

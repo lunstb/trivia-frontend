@@ -37,6 +37,13 @@ export class NewGame extends Component {
   }
 
   render() {
+    let disabled = ""
+    if(this.state.name.length < 4){
+      disabled = "Enter a name with 3 or more characters"
+    }else if(this.state.category === ""){
+      disabled = "Select a category"
+    }
+
     return (
       <div>
         <h1 className="header">New Game</h1>
@@ -61,6 +68,8 @@ export class NewGame extends Component {
         <LargeButtonLink
           location = {`/gamelobby?name=${encodeURI(this.state.name)}&status=creategame&category=${encodeURI(this.state.category)}`}
           text = "Create Game"
+          disabled = {disabled.length !== 0}
+          disabledMsg = {disabled}
         />
       </div>
     );

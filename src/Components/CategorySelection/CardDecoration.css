@@ -174,7 +174,7 @@
 
 
 
-.pyramids { 
+.category-card:nth-child(5) { 
 	background: var(--mink);
 	background-image:
 		repeating-linear-gradient(
@@ -208,7 +208,7 @@
 }
 
 
-.cat-toes {
+.category-card:nth-child(5) {
 	background: var(--powder-pink);
 	background-image:
 		repeating-radial-gradient(
@@ -239,7 +239,7 @@
 	background-size: 1.2em 1.2em;
 }
 
-.diamonds {
+.category-card:nth-child(5) {
 	background: var(--sakura);
 	background-image:
 		repeating-linear-gradient(
@@ -267,7 +267,7 @@
 	background-size: 21em;
 }
 
-.trellis {
+.category-card:nth-child(5) {
 	background: var(--purple-slate);
 	background-image:
 		repeating-linear-gradient(
@@ -287,7 +287,7 @@
 	background-size: 10em;
 }
 
-.orange-buzz {
+.category-card:nth-child(5) {
 	background: var(--orange);
 	background-image:
 		repeating-linear-gradient(
@@ -299,10 +299,10 @@
 	background-size: 0.2em 20em;
 }
 
-.lemon-lime-gingham {
+.category-card:nth-child(5) {
 	background: var(--pale-lemon);
 }
-.lemon-lime-gingham::before {
+.category-card:nth-child(5)::before {
 	background-image:
 		repeating-linear-gradient(
 			0deg,
@@ -316,7 +316,7 @@
 			var(--trans) 0.8em);
 	opacity: 0.4;
 }
-.lemon-lime-gingham::after {
+.category-card:nth-child(5)::after {
 	background-image:
 		repeating-linear-gradient(
 			90deg,
@@ -331,7 +331,7 @@
 	opacity: 0.4;
 }
 
-.lavender-lumberjack {
+.category-card:nth-child(5) {
 	background-image:
 		repeating-linear-gradient(
 			0deg,

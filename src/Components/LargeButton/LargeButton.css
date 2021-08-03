@@ -68,3 +68,14 @@ a:visited {
     );
     box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
   }
+
+.large-button.button-decorator.button-disabled {
+    background-image: linear-gradient(
+      to right,
+      #75b6d1,
+      #5e7fb6,
+      #8cdffa,
+      #8ea9d1
+    );
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+  }

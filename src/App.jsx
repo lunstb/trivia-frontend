@@ -10,6 +10,7 @@ import { JoinGame } from './Pages/JoinGame/JoinGame'
 import { NewGame } from './Pages/NewGame/NewGame'
 import './App.css';
 import { GameLobby } from './Pages/GameLobby/GameLobby';
+import { AlertSystem } from './Components/AlertSystem/AlertSystem';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
               </Route>
             </Switch>
         </Router>
+        <AlertSystem/>
       </div>
     </div>
     

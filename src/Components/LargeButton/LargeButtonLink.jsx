@@ -1,9 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { AlertSystem } from '../AlertSystem/AlertSystem'
 import './LargeButton.css'
 
-
-export const LargeButtonLink = ({location, text}) =>   <a className="large-button-container" href={location}><button  className="large-button button-decorator">{text}</button></a>
-
-
-{/* <Link className="large-button" to={location}>{text}</Link> */}
+export const LargeButtonLink = ({location, text, disabled = false, disabledMsg="This button is disabled"}) =>   
+<a className={"large-button-container"} href={disabled?"javascript:void(0)":location} onClick={()=>{
+  if(disabled){
+    AlertSystem.instance.addState(disabledMsg, "error")
+  }
+}}>
+  <button className={"large-button button-decorator"+(disabled?" button-disabled":"")}>{text}</button>
+</a>
