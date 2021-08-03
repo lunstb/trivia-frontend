@@ -1,5 +1,6 @@
 import React from 'react'
 import './CategorySelection.css'
+import './CardDecoration.css'
 
 export const CategorySelection = ({categories, selected, setCategory}) => 
   <div className="category-selection">

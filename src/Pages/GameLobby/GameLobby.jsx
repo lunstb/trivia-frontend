@@ -4,7 +4,7 @@ import { LoadingScreen } from './LoadingScreen/LoadingScreen';
 import { LobbyWaitScreen } from './LobbyWaitScreen/LobbyWaitScreen';
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 import { GameRoundScreen } from './GameRoundScreen/GameRoundScreen';
-import { GameResultsScreen } from './RoundResultsScreen/GameResultsScreen';
+import { RoundResultsScreen } from './RoundResultsScreen/RoundResultsScreen';
 import { GameEndScreen } from './GameEndScreen/GameEndScreen';
 import { Question } from '../../Components/Question/Question';
 
@@ -146,9 +146,10 @@ export class GameLobby extends Component {
         />
         break
       case "roundend":
-        currentScene = <GameResultsScreen
+        currentScene = <RoundResultsScreen
           countdownText = {this.state.countdownText}
           playerScores = {this.state.playerScores}
+          question = {this.state.currentQuestion}
         />
         break
       case "gameend":

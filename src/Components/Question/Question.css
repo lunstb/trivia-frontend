@@ -1,13 +1,14 @@
 .question-container {
   width: 80%;
   margin:auto;
-
+  height: 250px;
 }
 
 .question-text {
   width: 100%;
   text-align: center;
   font-size: 60px;
+  color: white;
 }
 
 .question-answer {
@@ -18,6 +19,7 @@
 
 .question-answer * {
   float: left;
+  
 }
 
 .question-answer input {
@@ -28,4 +30,5 @@
 
 .question-answer div {
   font-size: 78px;
+  color: white;
 }

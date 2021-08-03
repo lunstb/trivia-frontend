@@ -1,4 +1,4 @@
-.large-button {
+/* .large-button {
   background-color: #a9a9a9;
   display: block;
   width: 350px;
@@ -15,4 +15,56 @@
   border-radius: 40px;
 
   cursor: pointer;
+} */
+
+.large-button-container{
+  margin-left: 50%;
 }
+
+.large-button {
+  width: 380px;
+  margin-top: 7vh;
+  margin-left: -190px;
+  display: inline-block;
+  font-size: 60px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  height: 160px;
+  text-align:center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  
+}
+
+a:visited {
+  text-decoration: none !important;
+}
+
+.large-button:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.large-button:focus {
+  outline: none;
+}
+
+.large-button.button-decorator {
+    background-image: linear-gradient(
+      to right,
+      #25aae1,
+      #4481eb,
+      #04befe,
+      #3f86ed
+    );
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+  }

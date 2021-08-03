@@ -6,7 +6,7 @@
   overflow: scroll;
   overflow-y: hidden;
   white-space: nowrap;
-  background-color: lightgray;
+  background-color: #1e1e1e;
 }
 
 .category-card {
@@ -14,13 +14,17 @@
   background-color: gray;
   min-width: 300px;
   height: 160px;
-  font-size: 50px;
+  font-size: 60px;
 
   text-align: center;
   line-height: 145px;
   margin: 10px;
   padding: 10px;
   border-radius: 30px;
+  font-family: handlee;
+
+  color: #ddd;
+  text-shadow: -2px 0 black, 0 3px black, 2px 0 black, 0 -2px black;
 
   /* Border is defined here and set transparent so it doesn't jitter on selection */
   border-width: 4px;
@@ -33,6 +37,5 @@
 }
 
 .category-selected {
-  background-color: aqua;
-  border-color: black;
+  border-color: white;
 }

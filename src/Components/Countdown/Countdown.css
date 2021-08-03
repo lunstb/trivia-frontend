@@ -1,0 +1,16 @@
+.countdown-container {
+  display: block;
+  position: relative;
+  margin: 30px auto;
+  width: fit-content;
+}
+
+.countdown-container * {
+  font-size: 60px;
+  float: left;
+  color: white;
+}
+
+.time-left {
+  margin-right: 10px;
+}

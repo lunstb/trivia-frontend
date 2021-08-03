@@ -9,6 +9,5 @@ export const Question = ({question, unit, handleChange}) => (
       <input onChange={handleChange} type="number"></input>
       <div>{unit}</div>
     </div>
-    <div className="countdown"></div>
   </div>
 )

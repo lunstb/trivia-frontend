@@ -1,11 +1,12 @@
 import React from 'react'
 import { BackButton } from '../../../Components/BackButton/BackButton'
+import { Countdown } from '../../../Components/Countdown/Countdown'
 import { Question } from '../../../Components/Question/Question'
 
 
 export const GameRoundScreen = (props) => (
   <div>
-    <h1 className="header">Round BLANK</h1>
+    <h1 className="header">Enter Your Best Guess</h1>
     <BackButton 
       location = "/"
       text = "Exit"
@@ -17,6 +18,9 @@ export const GameRoundScreen = (props) => (
       handleChange = {props.enterAnswer}
     />
    
-    <div>{props.countdownText} Seconds Left to Guess</div>
+    <Countdown
+      text = "Seconds Left in Round"
+      timeLeft = {props.countdownText}
+    />
   </div>
 )

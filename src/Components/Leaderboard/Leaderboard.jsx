@@ -2,7 +2,7 @@ import React from 'react'
 import './Leaderboard.css'
 
 
-export const Leaderboard = ({players}) => (
+export const Leaderboard = ({players, gameEnd = false}) => (
   <div>
     <div className="leaderboard-text">Leaderboard</div>
     <table className="leaderboard">
@@ -11,7 +11,7 @@ export const Leaderboard = ({players}) => (
           <td className="score-position">{i + 1}</td>
           <td>{player.Name}</td>
           <td>{player.Score} points</td>
-          <td className="score-increase">+{player.ScoreIncrease}</td>
+          { !gameEnd && <td className="score-increase">+{player.ScoreIncrease}</td>}
         </tr>
       ))}
     </table>

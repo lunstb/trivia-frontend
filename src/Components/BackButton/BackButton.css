@@ -1,15 +1,16 @@
 .back-button {
-  background-color: #a9a9a9;
+  background-color: #ea80fc;
+  color: #1e1e1e;
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 40px;
+  left: 40px;
   text-decoration: none;
   color: black;
-  height: 50px;
-  width: 100px;
-  border-radius: 20px;
+  height: 80px;
+  width: 80px;
+  border-radius: 100px;
   text-align: center;
   vertical-align: middle;
-  line-height: 45px;
-  font-size: 30px;
+  line-height: 75px;
+  font-size: 80px;
 }

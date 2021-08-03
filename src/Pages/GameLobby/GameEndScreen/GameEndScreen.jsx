@@ -12,6 +12,7 @@ export const GameEndScreen = (props) => (
 
     <Leaderboard
       players = {props.playerScores}
+      gameEnd = {true}
     />
 
     <div>Game ended</div>

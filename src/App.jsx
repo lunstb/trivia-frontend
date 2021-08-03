@@ -13,25 +13,30 @@ import { GameLobby } from './Pages/GameLobby/GameLobby';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/joingame">
-            <JoinGame />
-          </Route>
-          <Route path="/newgame">
-            <NewGame />
-          </Route>
-          <Route path="/gamelobby">
-            <GameLobby />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-    </Router>
+    <div className="background">
+      <div className="layer">
+        <Router>
+          <Switch>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/joingame">
+                <JoinGame />
+              </Route>
+              <Route path="/newgame">
+                <NewGame />
+              </Route>
+              <Route path="/gamelobby">
+                <GameLobby />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+        </Router>
+      </div>
+    </div>
+    
   );
 }
 

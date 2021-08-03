@@ -7,7 +7,7 @@ export class Home extends Component {
   render() {
     return (
       <div>
-        <h1 className="header">Project Name</h1>
+        <h1 className="header">Trivia Project</h1>
         <LargeButtonLink
           location = "/newgame"
           text = "New Game"

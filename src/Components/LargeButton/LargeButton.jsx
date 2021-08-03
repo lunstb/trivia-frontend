@@ -2,4 +2,5 @@ import React from 'react'
 import './LargeButton.css'
 
 
-export const LargeButton = ({callback, text}) => <div className="large-button" onClick={()=>callback()}>{text}</div>
+export const LargeButton = ({callback, text}) => <a className="large-button-container"><button onClick={()=>callback()} className="large-button button-decorator">{text}</button></a>
+
