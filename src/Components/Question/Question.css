@@ -9,17 +9,20 @@
   text-align: center;
   font-size: 60px;
   color: white;
+  margin-bottom: 20px;
 }
 
 .question-answer {
   width: 600px;
-  margin: auto;
-  
+  margin: auto; 
 }
 
 .question-answer * {
   float: left;
-  
+}
+
+.question-unit {
+  margin-left: 20px;
 }
 
 .question-answer input {

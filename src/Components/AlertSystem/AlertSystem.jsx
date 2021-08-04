@@ -37,13 +37,7 @@ export class AlertSystem extends React.Component {
   }
 
   removeState(msg) {
-    let updatedMessages = [];
-    this.state.messages.map((message) => {
-      if(message.Message !== msg){
-        updatedMessages.push(message);
-      }
-      return
-    })
+    let updatedMessages = this.state.messages.filter(message => message.Message !== msg);
     this.setState({
       messages: updatedMessages
     })

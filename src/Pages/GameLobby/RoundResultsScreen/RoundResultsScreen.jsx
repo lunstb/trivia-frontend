@@ -18,7 +18,7 @@ export const RoundResultsScreen = (props) => (
     />
 
     <Countdown
-      text = "Seconds Left in Round"
+      text = "Seconds Until Next Round"
       timeLeft = {props.countdownText}
     />
   </div>

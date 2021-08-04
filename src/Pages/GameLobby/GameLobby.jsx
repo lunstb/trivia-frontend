@@ -6,7 +6,7 @@ import { w3cwebsocket as W3CWebSocket } from "websocket";
 import { GameRoundScreen } from './GameRoundScreen/GameRoundScreen';
 import { RoundResultsScreen } from './RoundResultsScreen/RoundResultsScreen';
 import { GameEndScreen } from './GameEndScreen/GameEndScreen';
-import { Question } from '../../Components/Question/Question';
+import { AlertSystem } from '../../Components/AlertSystem/AlertSystem';
 
 export class GameLobby extends Component {
   constructor(props) {
@@ -31,7 +31,12 @@ export class GameLobby extends Component {
   }
 
   enterAnswer(event) {
-    this.websocket.send(JSON.stringify({"type":1,"content":JSON.stringify({"answer":event.target.value})}))
+    // Make sure that the target value is a valid parsable int
+    if(event.target.value.length === 0 || isNaN(event.target.value)){
+      AlertSystem.instance.addState("Make sure your answer is a valid number","error") 
+    }else{
+      this.websocket.send(JSON.stringify({"type":1,"content":JSON.stringify({"answer":event.target.value})}))
+    }
   }
 
   handleLoading() {
@@ -101,6 +106,13 @@ export class GameLobby extends Component {
             gameState: "gameend"
           })
           break
+        case 7:
+          self.setState({
+            gameState: "gameend"
+          })
+          AlertSystem.instance.addState("Host left", "warning")
+          break
+          
         default:
           break
       }

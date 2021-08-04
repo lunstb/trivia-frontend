@@ -14,7 +14,5 @@ export const GameEndScreen = (props) => (
       players = {props.playerScores}
       gameEnd = {true}
     />
-
-    <div>Game ended</div>
   </div>
 )

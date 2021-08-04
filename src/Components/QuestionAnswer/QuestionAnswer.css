@@ -1,0 +1,16 @@
+.question-answer-container .question-text {
+  width: 100%;
+  text-align: center;
+  font-size: 60px;
+  color: white;
+}
+
+.question-answer-container .question-answer {
+  width: 100vw;
+  text-align: center;
+  font-size: 90px;
+  color: white;
+  text-shadow: -2px 0 #ea80fc, 0 2px #ea80fc, 1px 0 #ea80fc, 0 -1px #ea80fc;
+  display: block;
+  margin-bottom: 100px;
+}

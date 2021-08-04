@@ -1,5 +1,4 @@
 import React from 'react'
-import { AlertSystem } from '../../../Components/AlertSystem/AlertSystem'
 import { BackButton } from '../../../Components/BackButton/BackButton'
 import { LargeButton } from '../../../Components/LargeButton/LargeButton'
 import { LobbyCode } from '../../../Components/LobbyCode/LobbyCode'

@@ -7,7 +7,7 @@ export const Question = ({question, unit, handleChange}) => (
     <div className="question-text">{question}</div>
     <div className="question-answer">
       <input onChange={handleChange} type="number"></input>
-      <div>{unit}</div>
+      <div className="question-unit">{unit}</div>
     </div>
   </div>
 )

@@ -10,7 +10,8 @@ export class JoinGame extends Component {
     this.state = {
       name: "",
       code: "",
-      disabled: "You need to enter a name"
+      disabled: "You need to enter a name",
+      validCode: false
     }
 
     this.changeName = this.changeName.bind(this)
@@ -24,8 +25,14 @@ export class JoinGame extends Component {
   }
 
   changeCode(event) {
+    fetch(`http://localhost:8080/gameexists/${event.target.value}`).then(res => res.json()).then((jsondata) => {
+      console.log(jsondata)
+      this.setState({
+        validCode: jsondata.Exists
+      })
+    })
     this.setState({
-      code: event.target.value
+      code: event.target.value,
     })
   }
 
@@ -33,9 +40,10 @@ export class JoinGame extends Component {
     let disabled = "";
     if(this.state.name.length < 3){
       disabled = "Enter a name with 3 or more characters"
-    }else if(this.state.code.length <4){
+    }else if(this.state.code.length <4 || !this.state.validCode){
       disabled = "Enter a valid code"
     }
+
     return (
       <div>
         <h1 className="header">Join Game</h1>
